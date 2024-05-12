@@ -15,6 +15,7 @@ export const Login = ({ onChangeLogin }: LoginProps) => {
         name="basic"
         initialValues={{ remember: true }}
         style={{ padding: '20px' }}
+        labelCol={{ span: 5, offset:0 }}
       >
         <Form.Item
           label="Usuario"
@@ -35,6 +36,7 @@ export const Login = ({ onChangeLogin }: LoginProps) => {
         <Form.Item
           name="remember"
           valuePropName="checked"
+          wrapperCol={{ offset: 5 }}
         >
           <Checkbox>Recuérdame</Checkbox>
         </Form.Item>
