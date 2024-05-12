@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import { AuthRouter, OnlyPublicRoute, PrivateRoute, ProductsRouter } from "./index";
 
 export const AppRouter = () => {
-  const isLogged = true
+  const isLogged = false
   return (
     <Router>
       <Routes>
