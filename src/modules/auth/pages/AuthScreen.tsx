@@ -20,7 +20,7 @@ export const AuthScreen = () => {
           }}
         >
           {
-            isLogin? <Login onChangeLogin={setIsLogin}/> : <Signin />
+            isLogin? <Login onChangeLogin={setIsLogin} /> : <Signin onChangeLogin={setIsLogin} />
           }
         </div>
       </Content>
