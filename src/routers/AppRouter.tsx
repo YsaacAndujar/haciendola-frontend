@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { AuthRouter, OnlyPublicRoute, PrivateRoute, ProductsRouter } from "./index";
+import { useContext } from "react";
+import { AuthContext } from "context/auth/authContext";
 
 export const AppRouter = () => {
-  const isLogged = false
+  const { isLogged } = useContext(AuthContext)
   return (
     <Router>
       <Routes>
