@@ -18,6 +18,7 @@ export const CustomLayout = ({ children }: CustomLayoutProps) => {
           theme="dark"
           mode="horizontal"
           style={{ flex: 1, minWidth: 0 }}
+          key={0}
         >
           <Menu.Item>
             <Link to='/'>Productos</Link>
