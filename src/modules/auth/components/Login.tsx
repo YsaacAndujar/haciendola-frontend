@@ -55,7 +55,7 @@ export const Login = ({ onChangeLogin }: LoginProps) => {
         <Row justify="end">
           <Col>
             <Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" size="large">
                 Ingresar
               </Button>
             </Form.Item>

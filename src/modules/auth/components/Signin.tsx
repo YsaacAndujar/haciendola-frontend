@@ -67,7 +67,7 @@ export const Signin = ({ onChangeLogin }:SigninProps) => {
         <Row justify="end">
           <Col>
             <Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" size="large">
                 Resgistrarse
               </Button>
             </Form.Item>
