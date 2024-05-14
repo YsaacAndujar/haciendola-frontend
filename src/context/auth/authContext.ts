@@ -1,11 +1,11 @@
 import { createContext, Dispatch, SetStateAction, } from "react";
 
-export interface AuthContextValues {
+export interface IAuthContextValues {
     isLogged: boolean,
     setIsLogged: Dispatch<SetStateAction<boolean>>
 }
 
-export const AuthContext = createContext<AuthContextValues>({
+export const AuthContext = createContext<IAuthContextValues>({
     isLogged: false,
     setIsLogged: () => {}
 })
