@@ -1,3 +1,4 @@
+import axios from "axios"
 import { AuthContext } from "context/auth"
 import { postLogin, postSignin } from "helpers/auth"
 import { useContext } from "react"
@@ -11,6 +12,7 @@ export const useAuth = () => {
         } else {
             sessionStorage.setItem("token", token);
         }
+        axios.defaults.headers.Authorization = `Bearer ${token}`
         setIsLogged(true)
     }
     const startLogin = ({ username, password, remember }: { username: string, password: string, remember: boolean }) => {
