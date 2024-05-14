@@ -1,7 +1,7 @@
 import { Button, Checkbox, Col, Form, Input, Row } from "antd"
 import { Typography } from 'antd';
 import { Dispatch, SetStateAction } from "react";
-import { useLogin } from "../hooks/useLogin";
+import { useAuth } from "../hooks/useAuth";
 const { Title, Text, Link } = Typography;
 
 interface LoginProps {
@@ -9,7 +9,7 @@ interface LoginProps {
 }
 
 export const Login = ({ onChangeLogin }: LoginProps) => {
-  const { startLogin } = useLogin()
+  const { startLogin } = useAuth()
   return (
     <>
       <Title level={2}>Login</Title>
@@ -18,7 +18,7 @@ export const Login = ({ onChangeLogin }: LoginProps) => {
         initialValues={{ remember: true }}
         style={{ padding: '20px' }}
         onFinish={startLogin}
-        labelCol={{ span: 5, offset:0 }}
+        labelCol={{ span: 5, offset: 0 }}
       >
         <Form.Item
           label="Usuario"

@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { Button, Col, Form, Input, Row, Typography } from 'antd';
+import { useAuth } from "../hooks/useAuth";
 const { Title, Text, Link } = Typography;
 
 interface SigninProps {
@@ -7,6 +8,7 @@ interface SigninProps {
 }
 
 export const Signin = ({ onChangeLogin }:SigninProps) => {
+  const { startSignin } = useAuth()
   return (
     <>
       <Title level={2}>Registro</Title>
@@ -15,6 +17,9 @@ export const Signin = ({ onChangeLogin }:SigninProps) => {
         initialValues={{ remember: true }}
         style={{ padding: '20px' }}
         labelCol={{ span: 5, offset:0 }}
+        onFinish={({username, password}:{username:string, password:string})=> {
+          startSignin({username, password})
+        }}
       >
         <Form.Item
           label="Usuario"
