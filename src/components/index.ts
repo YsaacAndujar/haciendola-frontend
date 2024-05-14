@@ -1,3 +1,3 @@
-import { Layout } from './Layout/Layout';
+import { CustomLayout } from './Layout/Layout';
 
-export { Layout }
+export { CustomLayout }
