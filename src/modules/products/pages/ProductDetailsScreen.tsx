@@ -1,7 +1,7 @@
-import { Button, Col, Form, Input, InputNumber, Row, Typography } from "antd";
+import { Button, Col, Form, Row, Typography } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
-import { useProductDetails } from "../hooks/useProductDetails";
 import { ProductValuesForm } from "../components/ProductValuesForm";
+import { useProductDetails } from "../hooks/useProductDetails";
 const { Title, } = Typography;
 
 export const ProductDetailsScreen = () => {
