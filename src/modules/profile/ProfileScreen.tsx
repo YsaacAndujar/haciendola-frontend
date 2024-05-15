@@ -1,6 +1,10 @@
+import { ChangePasswordForm, UpdateProfileForm } from "./components"
 
 export const ProfileScreen = () => {
   return (
-    <div>ProfileScreen</div>
+    <>
+      <UpdateProfileForm />
+      <ChangePasswordForm />
+    </>
   )
 }
