@@ -1,10 +1,10 @@
 import { Button, Input, Row, Table, Typography } from "antd";
-import { useProducts } from "../hooks/useProducts.tsx";
+import { useProductsList } from "../hooks/useProductsList.tsx";
 const { Search } = Input;
 const { Title, } = Typography;
 
 export const ProductsListScreen = () => {
-  const { columns, products, pagination, onPaginationChange, onSearch } = useProducts()
+  const { columns, products, pagination, onPaginationChange, onSearch } = useProductsList()
   return (
     <>
       <Title level={2}>Productos</Title>

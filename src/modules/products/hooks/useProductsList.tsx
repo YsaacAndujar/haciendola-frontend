@@ -4,7 +4,7 @@ import { IProductList } from "interfaces/products"
 import { useEffect, useState } from "react"
 const { useBreakpoint } = Grid;
 
-export const useProducts = () => {
+export const useProductsList = () => {
     const [products, setProducts] = useState<IProductList[]>([])
     const [pagination, setPagination] = useState<{total:number}>({total:0})
     const [filters, setFilters] = useState({page:1, take:10,})
