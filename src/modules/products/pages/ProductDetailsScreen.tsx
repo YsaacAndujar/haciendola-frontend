@@ -24,7 +24,7 @@ export const ProductDetailsScreen = () => {
         style={{ padding: '20px' }}
         labelCol={{ span: 5, offset: 0 }}
       >
-        <ProductValuesForm isEdit={isEdit}/>
+        <ProductValuesForm isView={!isEdit}/>
 
         <Row justify="end"gutter={16} >
           {
