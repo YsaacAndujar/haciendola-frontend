@@ -1,10 +1,10 @@
 import { Button, Col, Form, Input, Row, Typography } from "antd";
-import { useUpdateProfileForm } from "../hooks/useUpdateProfileForm";
+import { useUpdateProfile } from "../hooks/useUpdateProfile";
 const { Title, } = Typography;
 
 export const UpdateProfileForm = () => {
 
-    const { profile, form, isEdit, setIsEdit, onCancelEdit, onSubmit, } = useUpdateProfileForm()
+    const { profile, form, isEdit, setIsEdit, onCancelEdit, onSubmit, } = useUpdateProfile()
 
     return (
         <>
