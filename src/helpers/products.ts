@@ -12,3 +12,7 @@ export const getProduct  = (id:string) =>{
 export const updateProduct  = (id:string, product: IProduct) =>{
     return axios.put(`/products/${id}`, product)
 }
+
+export const postProduct  = (product: IProduct) =>{
+    return axios.post(`/products`, product)
+}
