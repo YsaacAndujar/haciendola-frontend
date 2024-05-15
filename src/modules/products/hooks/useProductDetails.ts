@@ -24,7 +24,7 @@ export const useProductDetails = (id: string) => {
             setProduct(result)
         })
         .catch(()=>{
-            navigate('/')
+            navigate('/products')
         })
         .finally(()=>{
             setLoading(false)
@@ -69,7 +69,7 @@ export const useProductDetails = (id: string) => {
         deleteProduct(id)
         .then(()=>{
             showModal({title: 'Product deleted', text:'Product deleted successfully', type:'success'})
-            navigate('/')
+            navigate('/products')
         })
         .finally(()=>{
             setLoading(false)

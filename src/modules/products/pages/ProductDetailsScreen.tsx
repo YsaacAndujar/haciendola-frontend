@@ -8,7 +8,7 @@ export const ProductDetailsScreen = () => {
   const { id } = useParams();
     const navigate = useNavigate();
     if (!id) {
-        navigate('/')
+        navigate('/products')
     }
     const { product, form, isEdit, setIsEdit, onCancelEdit, onSubmit, onDeleteClick } = useProductDetails(id||'0')
     
@@ -39,7 +39,7 @@ export const ProductDetailsScreen = () => {
               </Col>
               <Col>
                 <Form.Item>
-                  <Button size="large" onClick={() =>{navigate('/')}}>
+                  <Button size="large" onClick={() =>{navigate('/products')}}>
                     Cancel
                   </Button>
                 </Form.Item>

@@ -1,8 +1,9 @@
 import { Grid, Layout, Menu } from "antd";
 import { Content, Header } from "antd/es/layout/layout";
 import { ReactNode } from "react";
-import './layaout.css';
+import './customLayout.css';
 import { Link } from "react-router-dom";
+import SubMenu from "antd/es/menu/SubMenu";
 const { useBreakpoint } = Grid;
 
 interface CustomLayoutProps {
@@ -12,7 +13,7 @@ interface CustomLayoutProps {
 export const CustomLayout = ({ children }: CustomLayoutProps) => {
   const screens = useBreakpoint();
   return (
-    <Layout style={{minHeight: '100vh'}}>
+    <Layout style={{ minHeight: '100vh' }}>
       <Header style={{ display: 'flex', alignItems: 'center' }}>
         <Menu
           theme="dark"
@@ -21,11 +22,19 @@ export const CustomLayout = ({ children }: CustomLayoutProps) => {
           key={0}
         >
           <Menu.Item>
-            <Link to='/'>Productos</Link>
+            <Link to='/products'>Productos</Link>
           </Menu.Item>
+          <Menu.SubMenu key="profile" title="profile">
+            <Menu.Item key="profile">
+              <Link to='/profile'>Profile</Link>
+            </Menu.Item>
+            <Menu.Item key="logout">
+              Logout
+            </Menu.Item>
+          </Menu.SubMenu>
         </Menu>
       </Header>
-      <Content style={{ padding: screens.xs ? '20px 16px' : '50px 48px'  }}>
+      <Content style={{ padding: screens.xs ? '20px 16px' : '50px 48px' }}>
         <div
           style={{
             background: 'white',

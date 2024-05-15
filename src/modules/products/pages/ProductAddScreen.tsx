@@ -24,7 +24,7 @@ export const ProductAddScreen = () => {
         <Row justify="end"gutter={16} >
               <Col>
                 <Form.Item>
-                  <Button size="large" onClick={() =>{navigate('/')}}>
+                  <Button size="large" onClick={() =>{navigate('/products')}}>
                     Cancel
                   </Button>
                 </Form.Item>

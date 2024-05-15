@@ -52,7 +52,7 @@ export const useProductsList = () => {
         {
           key: 'action',
           render: (_, record) => (
-              <a href={`/${record.id}`}>Details</a>
+              <a href={`products/${record.id}`}>Details</a>
           ),
         },
       ];
@@ -72,7 +72,7 @@ export const useProductsList = () => {
         {
           key: 'action',
           render: (_, record) => (
-              <a href={`/${record.id}`}>Details</a>
+              <a href={`products/${record.id}`}>Details</a>
           ),
         },
       ];
