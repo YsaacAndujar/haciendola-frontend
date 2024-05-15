@@ -10,7 +10,7 @@ export const ProductDetailsScreen = () => {
     if (!id) {
         navigate('/')
     }
-    const { product, form, isEdit, setIsEdit, onCancelEdit, onSubmit } = useProductDetails(id||'0')
+    const { product, form, isEdit, setIsEdit, onCancelEdit, onSubmit, onDeleteClick } = useProductDetails(id||'0')
     
   return (
     <>
@@ -30,6 +30,13 @@ export const ProductDetailsScreen = () => {
           {
             !isEdit && 
             <>
+              <Col>
+                <Form.Item>
+                  <Button size="large" danger onClick={onDeleteClick}>
+                    Delete
+                  </Button>
+                </Form.Item>
+              </Col>
               <Col>
                 <Form.Item>
                   <Button size="large" onClick={() =>{navigate('/')}}>

@@ -9,6 +9,10 @@ export const getProduct  = (id:string) =>{
     return axios.get<never, IProduct>(`/products/${id}`, )
 }
 
+export const deleteProduct  = (id:string) =>{
+    return axios.delete(`/products/${id}`, )
+}
+
 export const updateProduct  = (id:string, product: IProduct) =>{
     return axios.put(`/products/${id}`, product)
 }

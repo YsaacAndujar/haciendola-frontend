@@ -1,10 +1,11 @@
 import { Form } from "antd";
 import { LoadingContext } from "context/loading";
-import { getProduct, updateProduct } from "helpers/products";
+import { deleteProduct, getProduct, updateProduct } from "helpers/products";
 import { IProduct } from "interfaces/products";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { showModal } from "utils/modal";
+import Swal from 'sweetalert2'
 
 export const useProductDetails = (id: string) => {
     const navigate = useNavigate();
@@ -47,5 +48,33 @@ export const useProductDetails = (id: string) => {
         })
     }
 
-  return { product, isEdit, form, setIsEdit, onCancelEdit, onSubmit }
+    const onDeleteClick = () =>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              onDeleteProduct()
+            }
+          });
+    }
+
+    const onDeleteProduct = () =>{
+        setLoading(true)
+        deleteProduct(id)
+        .then(()=>{
+            showModal({title: 'Product deleted', text:'Product deleted successfully', type:'success'})
+            navigate('/')
+        })
+        .finally(()=>{
+            setLoading(false)
+        })
+    }
+
+  return { product, isEdit, form, setIsEdit, onCancelEdit, onSubmit, onDeleteClick }
 }
