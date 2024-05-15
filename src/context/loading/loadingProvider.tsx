@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { LoadingContext } from "./loadingContext";
+import { Spin } from "antd";
 
 type LoadingContextProvider = {
   children: React.ReactNode
@@ -12,7 +13,9 @@ export const LoadingContextProvider = ({ children }: LoadingContextProvider) => 
       loading,
       setLoading
     }}>
-      {children}
+      <Spin size="large" spinning={loading}>
+        {children}
+      </Spin>
     </LoadingContext.Provider>
   )
 }
