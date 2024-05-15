@@ -3,6 +3,7 @@ import { getProduct, updateProduct } from "helpers/products";
 import { IProduct } from "interfaces/products";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { showModal } from "utils/modal";
 
 export const useProductDetails = (id: string) => {
     const navigate = useNavigate();
@@ -31,6 +32,7 @@ export const useProductDetails = (id: string) => {
         
         updateProduct(id, values)
         .then(()=>{
+            showModal({title: 'Product edited', text:'Product edited successfully', type:'success'})
             setProduct((prev) => ({...prev, ...values}))
         })
     }
