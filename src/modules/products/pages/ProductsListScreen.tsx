@@ -1,5 +1,5 @@
 import { Button, Input, Row, Table, Typography } from "antd";
-import { useProducts } from "../hooks/useProducts";
+import { useProducts } from "../hooks/useProducts.tsx";
 const { Search } = Input;
 const { Title, } = Typography;
 
