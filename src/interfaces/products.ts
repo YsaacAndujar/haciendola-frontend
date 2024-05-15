@@ -3,7 +3,15 @@ export interface IProductList {
     handle: string,
     title: string,
     stock: number,
-    price: number
+    price: number,
+}
+
+export interface IProduct extends IProductList {
+    description: string,
+    sku: string,
+    grams: number,
+    comparePrice: number,
+    barcode: string,
 }
 
 export interface IProductListResponse {
