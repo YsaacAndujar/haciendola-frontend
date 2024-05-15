@@ -1,9 +1,9 @@
 import { Grid, Layout, Menu } from "antd";
 import { Content, Header } from "antd/es/layout/layout";
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 import './customLayout.css';
 import { Link } from "react-router-dom";
-import SubMenu from "antd/es/menu/SubMenu";
+import { AuthContext } from "context/auth";
 const { useBreakpoint } = Grid;
 
 interface CustomLayoutProps {
@@ -12,6 +12,7 @@ interface CustomLayoutProps {
 
 export const CustomLayout = ({ children }: CustomLayoutProps) => {
   const screens = useBreakpoint();
+  const { logOut } = useContext(AuthContext)
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Header style={{ display: 'flex', alignItems: 'center' }}>
@@ -24,12 +25,12 @@ export const CustomLayout = ({ children }: CustomLayoutProps) => {
           <Menu.Item>
             <Link to='/products'>Productos</Link>
           </Menu.Item>
-          <Menu.SubMenu key="profile" title="profile">
+          <Menu.SubMenu key="profileMenu" title="Profile" style={{ marginLeft: 'auto' }}>
             <Menu.Item key="profile">
               <Link to='/profile'>Profile</Link>
             </Menu.Item>
-            <Menu.Item key="logout">
-              Logout
+            <Menu.Item key="logout" onClick={logOut}>
+              Log Out
             </Menu.Item>
           </Menu.SubMenu>
         </Menu>
