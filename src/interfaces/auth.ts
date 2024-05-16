@@ -10,3 +10,9 @@ export interface ILoginResponse {
 export interface IForgotPasswordRequest {
     username: string,
 }
+
+export interface IRecoverPasswordRequest {
+    username: string,
+    code: string,
+    password: string,
+}

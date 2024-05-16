@@ -1,5 +1,5 @@
 import axios from "axios"
-import { IForgotPasswordRequest, ILoginRequest, ILoginResponse } from "interfaces/auth"
+import { IForgotPasswordRequest, ILoginRequest, ILoginResponse, IRecoverPasswordRequest } from "interfaces/auth"
 
 export const postLogin  = (data: ILoginRequest) =>{
     return axios.post<never, ILoginResponse>('auth/login', data)
@@ -10,5 +10,9 @@ export const postSignin  = (data: ILoginRequest) =>{
 }
 
 export const postForgotPassword  = (data: IForgotPasswordRequest) =>{
-    return axios.post<never, ILoginResponse>('auth/forgot-password', data)
+    return axios.post('auth/forgot-password', data)
+}
+
+export const postRecoverPassword  = (data: IRecoverPasswordRequest) =>{
+    return axios.put<never, ILoginResponse>('auth/password-by-code', data)
 }
