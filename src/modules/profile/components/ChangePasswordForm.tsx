@@ -1,5 +1,6 @@
 import { Button, Col, Form, Input, Row, Typography } from "antd";
 import { useChangePassword } from "../hooks/useChangePassword";
+import { passwordMatchMsg, requiredMsg } from "utils/form";
 const { Title, } = Typography;
 
 export const ChangePasswordForm = () => {
@@ -19,7 +20,7 @@ export const ChangePasswordForm = () => {
         <Form.Item
           label="Old password"
           name="oldPassword"
-          rules={[{ required: true, message: 'La contraseña es requerida' }]}
+          rules={[{ required: true, message: requiredMsg }]}
         >
           <Input.Password />
         </Form.Item>
@@ -27,7 +28,7 @@ export const ChangePasswordForm = () => {
         <Form.Item
           label="New password"
           name="newPassword"
-          rules={[{ required: true, message: 'La contraseña es requerida' }]}
+          rules={[{ required: true, message: requiredMsg }]}
         >
           <Input.Password />
         </Form.Item>
@@ -37,13 +38,13 @@ export const ChangePasswordForm = () => {
           name="confirm"
           dependencies={['newPassword']}
           rules={[
-            { required: true, message: 'Confirme contraseña' },
+            { required: true, message: requiredMsg },
             ({ getFieldValue }) => ({
             validator(_, value) {
               if (!value || getFieldValue('newPassword') === value) {
                 return Promise.resolve();
               }
-              return Promise.reject(new Error('Las contraseñas no son iguales'));
+              return Promise.reject(new Error(passwordMatchMsg));
             },
           }),]}
         >

@@ -3,6 +3,7 @@ import { Content } from "antd/es/layout/layout";
 import { useNavigate } from "react-router-dom";
 import { contentStyle, divContainerStyle, layoutStyle } from "../styles/layoutStyles";
 import { useForgotPassword } from "../hooks/useForgotPassword";
+import { requiredMsg } from "utils/form";
 const { Title,Text } = Typography;
 
 export const ForgotPasswordScreen = () => {
@@ -31,9 +32,9 @@ export const ForgotPasswordScreen = () => {
         onFinish={onSubmit}
       >
         <Form.Item
-          label="Usuario"
+          label="Username"
           name="username"
-          rules={[{ required: true, message: 'El usuario es requerido' }]}
+          rules={[{ required: true, message: requiredMsg }]}
         >
           <Input />
         </Form.Item>

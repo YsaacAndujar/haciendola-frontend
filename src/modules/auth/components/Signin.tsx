@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { Button, Col, Form, Input, Row, Typography } from 'antd';
 import { useAuth } from "../hooks/useAuth";
+import { passwordMatchMsg, requiredMsg } from "utils/form";
 const { Title, Text, Link } = Typography;
 
 interface SigninProps {
@@ -22,33 +23,33 @@ export const Signin = ({ onChangeLogin }:SigninProps) => {
         }}
       >
         <Form.Item
-          label="Usuario"
+          label="User"
           name="username"
-          rules={[{ required: true, message: 'El usuario es requerido' }]}
+          rules={[{ required: true, message: requiredMsg }]}
         >
           <Input />
         </Form.Item>
 
         <Form.Item
-          label="Contraseña"
+          label="Password"
           name="password"
-          rules={[{ required: true, message: 'La contraseña es requerida' }]}
+          rules={[{ required: true, message: requiredMsg }]}
         >
           <Input.Password />
         </Form.Item>
         
         <Form.Item
-          label="Confirmar contraseña"
+          label="Confirm password"
           name="confirm"
           dependencies={['password']}
           rules={[
-            { required: true, message: 'Confirme contraseña' },
+            { required: true, message: requiredMsg },
             ({ getFieldValue }) => ({
             validator(_, value) {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
-              return Promise.reject(new Error('Las contraseñas no son iguales'));
+              return Promise.reject(new Error(passwordMatchMsg));
             },
           }),]}
         >
@@ -59,7 +60,7 @@ export const Signin = ({ onChangeLogin }:SigninProps) => {
           <Col>
             <Form.Item>
               <Text>
-                Ya tienes una cuenta? Ingresa haciendo click <Link onClick={() => { onChangeLogin(true) }}>Aquí</Link>
+                Do you already have an account? <Link onClick={() => { onChangeLogin(true) }}>Click here</Link>
               </Text>
             </Form.Item>
           </Col>
@@ -68,7 +69,7 @@ export const Signin = ({ onChangeLogin }:SigninProps) => {
           <Col>
             <Form.Item>
               <Button type="primary" htmlType="submit" size="large">
-                Resgistrarse
+                Sigin
               </Button>
             </Form.Item>
           </Col>

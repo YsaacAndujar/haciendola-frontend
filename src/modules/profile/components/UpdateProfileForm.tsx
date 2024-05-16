@@ -1,5 +1,6 @@
 import { Button, Col, Form, Input, Row, Typography } from "antd";
 import { useUpdateProfile } from "../hooks/useUpdateProfile";
+import { requiredMsg } from "utils/form";
 const { Title, } = Typography;
 
 export const UpdateProfileForm = () => {
@@ -21,7 +22,7 @@ export const UpdateProfileForm = () => {
                 <Form.Item
                     label="Username"
                     name="username"
-                    rules={[{ required: true, message: 'This field is required' }]}
+                    rules={[{ required: true, message: requiredMsg }]}
                 >
                     <Input disabled={!isEdit} />
                 </Form.Item>

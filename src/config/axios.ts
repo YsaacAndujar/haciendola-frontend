@@ -9,7 +9,7 @@ const removeLogin = () =>{
 }
 
 export const setupAxios = (): void => {
-  const genericErroMsg = 'Hubo un error desconocido. Revise su conexión a internet e inténtelo más tarde'
+  const genericErroMsg = 'Unkown error. Check your network and try later.'
     axios.interceptors.response.use(
       ({data}) => {
         return data;

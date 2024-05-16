@@ -3,6 +3,7 @@ import { Typography } from 'antd';
 import { Dispatch, SetStateAction } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { requiredMsg } from "utils/form";
 const { Title, Text, Link } = Typography;
 
 interface LoginProps {
@@ -23,17 +24,17 @@ export const Login = ({ onChangeLogin }: LoginProps) => {
         labelCol={{ span: 5, offset: 0 }}
       >
         <Form.Item
-          label="Usuario"
+          label="Username"
           name="username"
-          rules={[{ required: true, message: 'El usuario es requerido' }]}
+          rules={[{ required: true, message: requiredMsg }]}
         >
           <Input />
         </Form.Item>
 
         <Form.Item
-          label="Contraseña"
+          label="Password"
           name="password"
-          rules={[{ required: true, message: 'La contraseña es requerida' }]}
+          rules={[{ required: true, message: requiredMsg }]}
         >
           <Input.Password />
         </Form.Item>
@@ -43,7 +44,7 @@ export const Login = ({ onChangeLogin }: LoginProps) => {
           valuePropName="checked"
           wrapperCol={{ offset: 5 }}
         >
-          <Checkbox>Recuérdame</Checkbox>
+          <Checkbox>Remember me</Checkbox>
         </Form.Item>
         <Row justify="end">
             <Form.Item>
@@ -55,7 +56,7 @@ export const Login = ({ onChangeLogin }: LoginProps) => {
         <Row justify="end" style={{marginTop:'-30px'}}>
             <Form.Item>
               <Text>
-                Aún no tienes una cuenta? Regístrate haciendo click <Link onClick={() => { onChangeLogin(false) }}>Aquí</Link>
+                Don't have an account? <Link onClick={() => { onChangeLogin(false) }}>Click here</Link>
               </Text>
             </Form.Item>
         </Row>
@@ -63,7 +64,7 @@ export const Login = ({ onChangeLogin }: LoginProps) => {
           <Col>
             <Form.Item>
               <Button type="primary" htmlType="submit" size="large">
-                Ingresar
+                Login
               </Button>
             </Form.Item>
           </Col>

@@ -23,7 +23,7 @@ export const CustomLayout = ({ children }: CustomLayoutProps) => {
           key={0}
         >
           <Menu.Item>
-            <Link to='/products'>Productos</Link>
+            <Link to='/products'>Products</Link>
           </Menu.Item>
           <Menu.SubMenu key="profileMenu" title="Profile" style={{ marginLeft: 'auto' }}>
             <Menu.Item key="profile">

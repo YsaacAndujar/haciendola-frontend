@@ -3,6 +3,7 @@ import { Content } from "antd/es/layout/layout";
 import { useNavigate } from "react-router-dom";
 import { useRecoverPassword } from "../hooks/useRecoverPassword";
 import { contentStyle, divContainerStyle, layoutStyle } from "../styles/layoutStyles";
+import { passwordMatchMsg, requiredMsg } from "utils/form";
 const { Title,Text } = Typography;
 
 export const RecoverPasswordScreen = () => {
@@ -31,23 +32,23 @@ export const RecoverPasswordScreen = () => {
         onFinish={onSubmit}
       >
         <Form.Item
-          label="Usuario"
+          label="User"
           name="username"
-          rules={[{ required: true, message: 'El usuario es requerido' }]}
+          rules={[{ required: true, message: requiredMsg }]}
         >
           <Input />
         </Form.Item>
         <Form.Item
           label="Code"
           name="code"
-          rules={[{ required: true, message: 'El usuario es requerido' }]}
+          rules={[{ required: true, message: requiredMsg }]}
         >
           <Input />
         </Form.Item>
         <Form.Item
           label="New password"
           name="password"
-          rules={[{ required: true, message: 'La contraseña es requerida' }]}
+          rules={[{ required: true, message: requiredMsg }]}
         >
           <Input.Password />
         </Form.Item>
@@ -57,13 +58,13 @@ export const RecoverPasswordScreen = () => {
           name="confirm"
           dependencies={['password']}
           rules={[
-            { required: true, message: 'Confirme contraseña' },
+            { required: true, message: requiredMsg },
             ({ getFieldValue }) => ({
             validator(_, value) {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
-              return Promise.reject(new Error('Las contraseñas no son iguales'));
+              return Promise.reject(new Error(passwordMatchMsg));
             },
           }),]}
         >
