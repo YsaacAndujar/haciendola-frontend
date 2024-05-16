@@ -1,12 +1,11 @@
 import axios from "axios";
-import { AuthContext } from "context/auth";
-import { useContext } from "react";
 import { showModal } from "utils/modal";
 
 
 const removeLogin = () =>{
-    const { setIsLogged } = useContext(AuthContext)
-    setIsLogged(false)
+  localStorage.clear();
+  sessionStorage.clear();
+  window.location.reload();
 }
 
 export const setupAxios = (): void => {
