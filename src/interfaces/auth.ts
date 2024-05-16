@@ -6,3 +6,7 @@ export interface ILoginRequest {
 export interface ILoginResponse {
     token: string,
 }
+
+export interface IForgotPasswordRequest {
+    username: string,
+}

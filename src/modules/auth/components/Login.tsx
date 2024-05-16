@@ -2,6 +2,7 @@ import { Button, Checkbox, Col, Form, Input, Row } from "antd"
 import { Typography } from 'antd';
 import { Dispatch, SetStateAction } from "react";
 import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 const { Title, Text, Link } = Typography;
 
 interface LoginProps {
@@ -10,6 +11,7 @@ interface LoginProps {
 
 export const Login = ({ onChangeLogin }: LoginProps) => {
   const { startLogin } = useAuth()
+  const navigate = useNavigate()
   return (
     <>
       <Title level={2}>Login</Title>
@@ -44,13 +46,18 @@ export const Login = ({ onChangeLogin }: LoginProps) => {
           <Checkbox>Recuérdame</Checkbox>
         </Form.Item>
         <Row justify="end">
-          <Col>
+            <Form.Item>
+              <Text>
+              Forgot your password?<Link onClick={() => { navigate('/auth/forgot-password') }}> Click here</Link>
+              </Text>
+            </Form.Item>
+        </Row>
+        <Row justify="end" style={{marginTop:'-30px'}}>
             <Form.Item>
               <Text>
                 Aún no tienes una cuenta? Regístrate haciendo click <Link onClick={() => { onChangeLogin(false) }}>Aquí</Link>
               </Text>
             </Form.Item>
-          </Col>
         </Row>
         <Row justify="end">
           <Col>
