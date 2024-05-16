@@ -1,4 +1,6 @@
 import { Form, Input, InputNumber } from "antd";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { requiredMsg } from "utils/form";
 
 interface ProductValuesFormProps {
@@ -29,7 +31,7 @@ export const ProductValuesForm = ({isView} : ProductValuesFormProps) => {
                 name="description"
                 rules={[{ required: true, message: requiredMsg }]}
             >
-                <Input disabled={isView} />
+                <ReactQuill theme="snow" readOnly={isView} />
             </Form.Item>
             <Form.Item
                 label="SKU"
