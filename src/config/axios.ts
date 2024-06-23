@@ -16,7 +16,7 @@ export const setupAxios = (): void => {
       },
       (error) => {
         if(!error.response){
-          showModal({title: 'Error desconocido', text:genericErroMsg, type:'error'})
+          showModal({title: 'Unkown error.', text:genericErroMsg, type:'error'})
           return Promise.reject(error)
         }
         const { data,status } = error.response
